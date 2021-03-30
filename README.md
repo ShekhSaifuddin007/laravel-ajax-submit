@@ -4,6 +4,8 @@ You don't need to use Laravel for use this, You can use this without Laravel.
 
 Just copy the files from `public/js/axios`
 
+- 
+
 ### How to Use
 
 - for globally use your master file put this end of body tag like this.
@@ -26,7 +28,7 @@ Just copy the files from `public/js/axios`
 </head>
 ```
 
-- then inside your form page use like below.
+- then inside your form blade use like below.
 ```html
 <form method="post" action="{{ route('users.store') }}" id="userForm">
     <div>
@@ -62,3 +64,19 @@ Just copy the files from `public/js/axios`
 ```
 
 - Here you can see I give `id` and `name` are same otherwise it will not show the validation error below the input field.
+
+- This function takes 3 parameter first is form id then the form button id and last is redirect url but this is optional.
+
+### from controller 
+
+```php
+public function store(UsersRequest $request)
+{
+    User::create($request->validated());
+    
+    // if you want to show the flash message then do like this.
+    $request->session()->flash('message', 'You are redirected successfully.! Bro wow...');
+
+    return response()->json(['status'=>'Hooray']);
+}
+```
