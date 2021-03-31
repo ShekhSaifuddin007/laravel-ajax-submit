@@ -4,8 +4,6 @@ You don't need to use Laravel for use this, You can use this without Laravel.
 
 Just copy the files from `public/js/axios`
 
-- 
-
 ### How to Use
 
 - for globally use your master file put this end of body tag like this.
@@ -29,8 +27,11 @@ Just copy the files from `public/js/axios`
 ```
 
 - then inside your form blade use like below.
+- don't need `@csrf` inside form axios will take care of, so you can remove this.
 ```html
 <form method="post" action="{{ route('users.store') }}" id="userForm">
+<!-- @csrf -->
+    
     <div>
         <label for="name">Name</label>
         <input id="name" name="name" class="block mt-1 w-full" type="text" value="{{ old('name') }}" autofocus />
@@ -70,6 +71,12 @@ Just copy the files from `public/js/axios`
 - Here you can see I give `id` and `name` are same otherwise it will not show the validation error below the input field.
 
 - This function takes 3 parameter first is form id then the form button id and last is redirect url but this is optional.
+
+
+#### The Extra layer to your validation
+
+- if you want give the extra layer to your validation just add `.required` class to input.
+- it will add red border in the input and prevent submit the form before send any request to server 
 
 ### from controller 
 

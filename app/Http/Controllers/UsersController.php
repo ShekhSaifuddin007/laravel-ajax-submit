@@ -15,7 +15,7 @@ class UsersController extends Controller
 
     public function store(UsersRequest $request)
     {
-        User::create($request->validated());
+//        User::create($request->validated());
 
         $request->session()->flash('message', 'You are redirected successfully.! Bro wow...');
 

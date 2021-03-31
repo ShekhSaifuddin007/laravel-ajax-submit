@@ -28,22 +28,22 @@
         <form method="post" action="{{ route('users.store') }}" id="userForm">
             <div>
                 <x-jet-label for="name" value="{{ __('Name') }}" />
-                <x-jet-input id="name" name="name" class="block mt-1 w-full" type="text" :value="old('name')" autofocus />
+                <x-jet-input id="name" name="name" class="block mt-1 w-full required" type="text" :value="old('name')" autofocus />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="text" name="email" :value="old('email')" />
+                <x-jet-input id="email" class="block mt-1 w-full " type="text" name="email" :value="old('email')" />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" />
+                <x-jet-input id="password" class="block mt-1 w-full " type="password" name="password" />
             </div>
 
             <div class="mt-4">
                 <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-jet-input id="password_confirmation" name="password_confirmation" type="password" class="mt-1 block w-full" />
+                <x-jet-input id="password_confirmation" name="password_confirmation" type="password" class="mt-1 block w-full " />
             </div>
 
             <div class="block mt-4">
