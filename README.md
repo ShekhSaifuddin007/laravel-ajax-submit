@@ -33,7 +33,7 @@ Just copy the files from `public/js/axios`
 <form method="post" action="{{ route('users.store') }}" id="userForm">
     <div>
         <label for="name">Name</label>
-        <input id="name" class="block mt-1 w-full" type="text" name="name" value="{{ old('name') }}" autofocus />
+        <input id="name" name="name" class="block mt-1 w-full" type="text" value="{{ old('name') }}" autofocus />
     </div>
 
     <div class="mt-4">
