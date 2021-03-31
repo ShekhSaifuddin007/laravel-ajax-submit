@@ -50,6 +50,10 @@ Just copy the files from `public/js/axios`
         <label for="password_confirmation">Confirm Password</label>
         <input id="password_confirmation" name="password_confirmation" type="password" class="mt-1 block w-full" />
     </div>
+
+    <div class="mt-4">
+        <button type="submit" id="btnDisable">Login</button>
+    </div>
 </form>
 
 @push('scripts')
