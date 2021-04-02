@@ -13,6 +13,8 @@ function submitAjaxForm(selector, disable, redirect = null) {
 
         let required = false
 
+        clearInputErrors()
+
         const requiredFields = document.querySelectorAll('.required')
         if (requiredFields) {
             requiredFields.forEach((element) => {
