@@ -17,13 +17,24 @@ function submitAjaxForm(selector, disable, redirect = null) {
         if (requiredFields) {
             requiredFields.forEach((element) => {
                 element.addEventListener('keyup', () => element.style.border = "")
+                // get fields name attribute
+                const nameAttributes = element.getAttribute('name')
+
+                // converting text where have `_` or `CamelCase` to `camel case`
+                const convertingText = nameAttributes.replace("_", " ")
+                                                            .replace( /([A-Z])/g, " $1" )
+
+                const attribute = convertingText.charAt(0).toLowerCase() + convertingText.slice(1).toLowerCase();
 
                 if ("" === element.value) {
                     element.style.border = "1px solid #a94442";
 
+                    element.insertAdjacentHTML('afterend', `<p class="text-danger">This ${ attribute } field is required.</p>`)
+
                     required = true
                 } else {
                     element.style.border = "";
+                    clearInputErrors()
                 }
             })
         }
@@ -54,8 +65,7 @@ function submitAjaxForm(selector, disable, redirect = null) {
                     const items = Object.keys(errors)
 
                     // clear previous errors when form submit
-                    const clearErrors = document.querySelectorAll('.text-danger')
-                    clearErrors.forEach((element) => element.textContent = '')
+                    clearInputErrors()
 
                     // active the selected button again
                     disableBtn.disabled = false
@@ -74,4 +84,9 @@ function submitAjaxForm(selector, disable, redirect = null) {
                 });
         }
     });
+}
+
+function clearInputErrors() {
+    const clearErrors = document.querySelectorAll('.text-danger')
+    clearErrors.forEach((element) => element.textContent = '')
 }
