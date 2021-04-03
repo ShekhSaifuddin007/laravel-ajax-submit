@@ -76,7 +76,7 @@ Just copy the files from `public/js/axios`
 #### The Extra layer to your validation
 
 - if you want give the extra layer to your validation just add `.required` class to input.
-- it will add red border in the input and prevent submit the form before send any request to server 
+- it will add red border in the input with proper input name and prevent submit the form before send any request to server 
 
 ### from controller 
 
