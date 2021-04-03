@@ -16,7 +16,7 @@ function submitAjaxForm(selector, disable, redirect = null) {
         clearInputErrors()
 
         const requiredFields = document.querySelectorAll('.required')
-        if (requiredFields) {
+        if (requiredFields.length > 0) {
             requiredFields.forEach((element) => {
                 element.addEventListener('keyup', () => element.style.border = "")
                 // get fields name attribute
@@ -36,7 +36,6 @@ function submitAjaxForm(selector, disable, redirect = null) {
                     required = true
                 } else {
                     element.style.border = "";
-                    clearInputErrors()
                 }
             })
         }
