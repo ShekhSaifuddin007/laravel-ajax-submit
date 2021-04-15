@@ -35,6 +35,8 @@ function submitAjaxForm(selector, disable, redirect = null) {
                     field.insertAdjacentHTML('afterend', `<p class="text-danger">This ${ attribute } field is required.</p>`)
 
                     required = true
+
+                    field.value = ''
                 } else {
                     field.style.border = "";
                 }
