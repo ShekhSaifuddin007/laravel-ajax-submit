@@ -17,12 +17,11 @@ function submitAjaxForm(selector, disable, redirect = null) {
 
         const requiredFields = document.querySelectorAll('.required')
         if (requiredFields.length > 0) {
-            requiredFields.forEach((element) => {
-                element.addEventListener('keyup', () => {
-                    element.style.border = ""
-                })
+            // requiredFields.forEach(checkRequiredFields(required))
+            requiredFields.forEach((field) => {
+                field.addEventListener('keyup', () => field.style.border = "")
                 // get fields name attribute
-                const nameAttributes = element.getAttribute('name')
+                const nameAttributes = field.getAttribute('name')
 
                 // converting text where have `_` or `CamelCase` to `camel case`
                 const convertingText = nameAttributes.replace("_", " ")
@@ -30,14 +29,14 @@ function submitAjaxForm(selector, disable, redirect = null) {
 
                 const attribute = convertingText.charAt(0).toLowerCase() + convertingText.slice(1).toLowerCase();
 
-                if ("" === element.value.trim()) {
-                    element.style.border = "1px solid #a94442";
+                if ("" === field.value.trim()) {
+                    field.style.border = "1px solid #a94442";
 
-                    element.insertAdjacentHTML('afterend', `<p class="text-danger">This ${ attribute } field is required.</p>`)
+                    field.insertAdjacentHTML('afterend', `<p class="text-danger">This ${ attribute } field is required.</p>`)
 
                     required = true
                 } else {
-                    element.style.border = "";
+                    field.style.border = "";
                 }
             })
         }
