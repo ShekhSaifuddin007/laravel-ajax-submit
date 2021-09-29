@@ -24,7 +24,7 @@ function submitAjaxForm(selector, disable, redirect = null) {
                 const nameAttributes = field.getAttribute('name')
 
                 // converting text where have `_` or `CamelCase` to `camel case`
-                const convertingText = nameAttributes.replace("_", " ")
+                const convertingText = nameAttributes.replace(/_/g, " ")
                                                             .replace( /([A-Z])/g, " $1" )
 
                 const attribute = convertingText.charAt(0).toLowerCase() + convertingText.slice(1).toLowerCase();
